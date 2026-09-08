@@ -4,11 +4,7 @@ const { GoogleGenAI } = require("@google/genai");
 require("dotenv").config();
 
 const app = express();
-app.use(
-  cors({
-    origin: "https://assistant-six-puce.vercel.app",
-  }),
-);
+app.use(cors());
 app.use(express.json());
 
 const client = new GoogleGenAI({
@@ -76,4 +72,4 @@ app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
 
-export default app;
+module.exports = app;
