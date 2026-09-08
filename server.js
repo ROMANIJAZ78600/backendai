@@ -17,8 +17,13 @@ const client = new GoogleGenAI({
 
 
 app.get("/", (req, res) => {
-  res.send("Ai Server is running");
+   console.log("ROOT ROUTE HIT");
   console.log("GEMINI KEY EXISTS:", !!process.env.GEMINI_API_KEY);
+
+  res.json({
+    message: "Ai Server is running",
+    geminiKey: !!process.env.GEMINI_API_KEY
+  });
 
 });
 
