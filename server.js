@@ -15,10 +15,11 @@ const client = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
-console.log("GEMINI KEY EXISTS:", !!process.env.GEMINI_API_KEY);
 
 app.get("/", (req, res) => {
   res.send("Ai Server is running");
+  console.log("GEMINI KEY EXISTS:", !!process.env.GEMINI_API_KEY);
+
 });
 
 app.post("/api/ask", async (req, res) => {
