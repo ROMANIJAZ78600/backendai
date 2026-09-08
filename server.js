@@ -75,8 +75,13 @@ If the user asks for code, explain the code step by step.
       reply: response.text || "No reply from AI",
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Internal Server Error" });
+     console.error("FULL GEMINI ERROR:", error);
+
+  return res.status(500).json({
+    success: false,
+    status: error?.status || null,
+    message: error?.message || String(error),
+  });
   }
 });
 
